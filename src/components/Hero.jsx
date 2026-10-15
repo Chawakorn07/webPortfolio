@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Download, Sparkles, CheckCircle2 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { personalInfo } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/imageHelper';
 
 const Hero = () => {
   return (
@@ -77,7 +78,7 @@ const Hero = () => {
 
               <div className="profile-image-container">
                 <img
-                  src={personalInfo.avatar}
+                  src={getAssetUrl(personalInfo.avatar)}
                   alt={`${personalInfo.name} (${personalInfo.nickname})`}
                   className="profile-img"
                 />

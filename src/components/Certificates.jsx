@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Award, Medal, Calendar, ExternalLink, Eye, CheckCircle2, Globe, Sparkles } from 'lucide-react';
 import { certificatesData } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/imageHelper';
 
 const Certificates = () => {
   const [activeModalCert, setActiveModalCert] = useState(null);
@@ -34,7 +35,7 @@ const Certificates = () => {
             <div key={cert.id} className="cert-card glass-card">
               
               <div className="cert-image-wrap">
-                <img src={cert.image} alt={cert.title} className="cert-img" loading="lazy" />
+                <img src={getAssetUrl(cert.image)} alt={cert.title} className="cert-img" loading="lazy" />
                 <div className="cert-overlay">
                   <button 
                     className="btn-overlay"
@@ -91,7 +92,7 @@ const Certificates = () => {
               </button>
 
               <div className="cert-modal-img-container">
-                <img src={activeModalCert.image} alt={activeModalCert.title} />
+                <img src={getAssetUrl(activeModalCert.image)} alt={activeModalCert.title} />
               </div>
 
               <div className="cert-modal-details">
@@ -103,7 +104,7 @@ const Certificates = () => {
                 <div className="cert-modal-meta">
                   <span><strong>วันที่ได้รับ:</strong> {activeModalCert.date}</span>
                   <a 
-                    href={activeModalCert.image} 
+                    href={getAssetUrl(activeModalCert.image)} 
                     target="_blank" 
                     rel="noreferrer"
                     className="btn btn-outline"

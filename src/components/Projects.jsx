@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ExternalLink, Filter, Sparkles, Layers, Eye } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import { projectsData } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/imageHelper';
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -48,7 +49,7 @@ const Projects = () => {
               
               {/* Image Preview Container */}
               <div className="project-image-wrap">
-                <img src={project.image} alt={project.title} className="project-img" loading="lazy" />
+                <img src={getAssetUrl(project.image)} alt={project.title} className="project-img" loading="lazy" />
                 <div className="project-overlay">
                   <div className="overlay-btns">
                     <button
@@ -129,7 +130,7 @@ const Projects = () => {
               </button>
 
               <div className="modal-img-wrap">
-                <img src={activeModalProject.image} alt={activeModalProject.title} />
+                <img src={getAssetUrl(activeModalProject.image)} alt={activeModalProject.title} />
               </div>
 
               <div className="modal-content">
